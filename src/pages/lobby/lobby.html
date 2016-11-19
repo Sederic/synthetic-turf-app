@@ -1,13 +1,21 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar text-center>
     <ion-title>Lobby</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<button ion-button> Start New Order</button>
+
 
 <ion-content padding>
+  <button ion-button button outline class="button-block" (click)="newOrder()"> Start New Order</button>
 
+  <ion-card>
+    <ion-card-header>
+      Previous Order
+    </ion-card-header>
+    <ion-card-content>
+      Random House
+    </ion-card-content>
+  </ion-card>
 </ion-content>

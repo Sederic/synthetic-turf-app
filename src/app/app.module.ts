@@ -4,14 +4,22 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { RegisterPage } from '../pages/register/register';
-// import { TabsPage } from '../pages/tabs/tabs';
+import { LobbyPage } from '../pages/lobby/lobby';
+import { TurfUsersRest } from "../providers/turfUsersRest";
+import { LoginPage } from '../pages/login/login';
+import { OrderPage } from '../pages/order/order';
+import { ItemsPage } from '../pages/items/items';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
-    RegisterPage
+    RegisterPage,
+    LobbyPage,
+    LoginPage,
+    OrderPage,
+    ItemsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,8 +29,12 @@ import { RegisterPage } from '../pages/register/register';
     MyApp,
     AboutPage,
     ContactPage,
-    RegisterPage
+    RegisterPage,
+    LobbyPage,
+    LoginPage,
+    OrderPage,
+    ItemsPage
   ],
-  providers: []
+  providers: [TurfUsersRest]
 })
 export class AppModule {}

@@ -1,60 +1,43 @@
-<!--
-<ion-content>
+<ion-header>
+  <ion-toolbar color="light" text-center>
+    <ion-buttons start>
+      <ion-icon name="content"></ion-icon>
+    </ion-buttons>
 
-  <ion-header>
-    <ion-toolbar color="light">
-      <ion-buttons start>
-        <ion-icon name="content"></ion-icon>
-      </ion-buttons>
+    <ion-title>Create Account</ion-title>
 
-      <ion-title>Create Account</ion-title>
+    <ion-buttons end>
+      <ion-icon name="search"></ion-icon>
+    </ion-buttons>
 
-      <ion-buttons end>
-        <ion-icon name="search"></ion-icon>
-      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
 
-    </ion-toolbar>
-  </ion-header>
+  <form #registerForm="ngForm" (ngSubmit)="signupForm(registerForm)" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" name="firstName" placeholder="First Name" [(ngModel)]="turfUsers.firstName" required></ion-input>
+      </ion-item>
 
-  <ion-list>
-    <ion-item>
-      <ion-input type="text" placeholder="Username"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input type="text" name="lastName" placeholder="Last Name" [(ngModel)]="turfUsers.lastName" required></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-input type="text" placeholder="Frist Name"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input type="email" name="email" placeholder="Email" [(ngModel)]="turfUsers.email" required></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-input type="text" placeholder="Last Name"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input type="password" name="password" placeholder="Password" [(ngModel)]="turfUsers.password" required></ion-input>
+      </ion-item>
+    </ion-list>
 
-    <ion-item>
-      <ion-input type="email" placeholder="Email"></ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-input type="password" placeholder="Password"></ion-input>
-    </ion-item>
+    <button ion-button class="button-block" type="submit">Register</button>
 
-  </ion-list>
-
-  <div padding class="button">
-    <button ion-button>Register</button>
-  </div>
-</ion-content>
--->
-<ion-content>
-  <ion-header>
-
-    <ion-navbar>
-      <ion-title>Lobby</ion-title>
-    </ion-navbar>
-
-  </ion-header>
-  <div id="new-order">
-    <button ion-button> Start New Order</button>
-
-  </div>
+ </form>
+ <div text-center>Already have an account?</div>
+  <button ion-button class="button-block" type="button" (click)="accountLogin()">Sign In</button>
 
 </ion-content>
