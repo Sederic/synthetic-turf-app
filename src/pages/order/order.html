@@ -13,7 +13,7 @@
   </ion-navbar>
 
 </ion-header>
- 
+
 
 
 <ion-content padding>
@@ -21,22 +21,21 @@
   <button ion-button block outline class="button-block" (click)="goToItems()">Add Items</button>
   <ion-list>
     <ion-item>
-      Example: PL921 Field/Olive 35 Ft
+    {{ cart | json }}
     </ion-item>
   </ion-list>
 
-  
 
 </ion-content>
 
 
- <ion-footer>
+<ion-footer>
   <ion-toolbar>
-    <ion-title>
-      {{ runningTotal }}
+    <ion-title text-center>
+      ${{ runningTotal }}
     </ion-title>
     <ion-title>
-       <button ion-button class="button-block"> Finalize Order</button>
+      <button ion-button class="button-block"> Finalize Order</button>
     </ion-title>
   </ion-toolbar>
 </ion-footer>

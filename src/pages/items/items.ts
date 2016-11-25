@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
 import { OrderPage } from '../order/order';
 
@@ -15,7 +15,8 @@ import { OrderPage } from '../order/order';
 })
 export class ItemsPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController,
+              private navParams: NavParams) {}
 
   turf = [
   {
@@ -83,7 +84,7 @@ export class ItemsPage {
   }
 ] 
 
-  cart = {
+  cart: any = {
       
     turf:{
       
@@ -92,17 +93,32 @@ export class ItemsPage {
     
     }
   }
+  // {
+      
+  //   turf:{
+      
+  //   },
+  //   items: {
+    
+  //   }
+  // }
   
   
   turfObj:any = {};
+  callback: any;
   
   ionViewDidLoad() {
+    this.cart = this.navParams.get("cart");
     console.log('Hello ItemsPage Page');
       for (var i in this.turf){
         this.turfObj[this.turf[i].grass_id] = this.turf[i]
       }
       console.log(this.turfObj);
     }
+    
+    ionViewWillEnter() {
+      this.callback = this.navParams.get("callback")
+ }
   
   submitItems(){
     var runningTotal = 0;
@@ -110,9 +126,16 @@ export class ItemsPage {
       runningTotal += this.cart.turf[i]  * this.turfObj[i].grass_price;
       //this.turfObj[i].grass_price
     }
-    console.log(runningTotal);
-    this.navCtrl.pop();
+    this.callback({
+      cart: this.cart,
+      total: runningTotal,
+    }).then(()=>{
+      this.navCtrl.pop();
+    });
+   
   }
+  
+  
   
   
   

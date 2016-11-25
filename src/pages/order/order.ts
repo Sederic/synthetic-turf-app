@@ -21,8 +21,28 @@ export class OrderPage {
   }
   
   goToItems(){
-    this.navCtrl.push(ItemsPage);
+    this.navCtrl.push(ItemsPage,{callback: this.myCallbackFunction, cart: this.cart});
   }
 
+  runningTotal = 0;
+  
+  cart = {
+      
+    turf:{
+      
+    },
+    items: {
+    
+    }
+  
+  };
+
+  myCallbackFunction = (_params) => {
+    return new Promise((resolve, reject) => {
+      this.runningTotal = _params.total;
+      this.cart = _params.cart;
+      resolve();
+ });
+}
 
 }
